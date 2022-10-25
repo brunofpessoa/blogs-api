@@ -1,13 +1,14 @@
 const express = require('express');
 
-// ...
+const router = require('./routers');
+const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
 
 app.use(express.json());
 
-// ...
+app.use(router);
 
-// É importante exportar a constante `app`,
-// para que possa ser utilizada pelo arquivo `src/server.js`
+app.use(errorHandler);
+
 module.exports = app;
