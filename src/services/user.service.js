@@ -43,7 +43,12 @@ const validateUser = async (value) => {
   return token;
 };
 
+const getUsers = async () => User.findAll({
+  attributes: { exclude: ['password'] },
+});
+
 module.exports = {
   validateBody,
   validateUser,
+  getUsers,
 };
