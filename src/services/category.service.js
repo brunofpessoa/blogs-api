@@ -20,4 +20,6 @@ const validateBody = (params) => {
 const createCategory = async (name) =>
   Category.create({ name });
 
-module.exports = { validateBody, createCategory };
+const getCategories = async () => Category.findAll();
+
+module.exports = { validateBody, createCategory, getCategories };
