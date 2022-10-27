@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const { BlogPost, Category, PostCategory } = require('../models');
+const { BlogPost, User, Category, PostCategory } = require('../models');
 const { decodeJwt } = require('../utils/jwt.util');
 
 const validateCategories = async (categoryIds) => {
@@ -47,7 +47,15 @@ const createPost = async (value, token) => {
   return post;
 };
 
+const getPosts = async () => BlogPost.findAll({
+  include: [
+    { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', through: { attributes: [] } },
+  ],
+});
+
 module.exports = {
   validateBody,
   createPost,
+  getPosts,
 };
