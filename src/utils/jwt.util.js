@@ -20,7 +20,12 @@ const validateToken = (token) => {
   }
 };
 
+const decodeJwt = (token) => JSON.parse(
+  Buffer.from(token.split('.')[1], 'base64').toString('ascii'),
+);
+
 module.exports = {
   createToken,
   validateToken,
+  decodeJwt,
 };
