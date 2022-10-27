@@ -27,4 +27,21 @@ const getPostById = async (req, res) => {
   res.status(200).json(data);
 };
 
-module.exports = { createPost, getPosts, getPostById };
+const updatePost = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { authorization: token } = req.headers;
+    const value = req.body;
+    const data = await postService.updatePost(id, token, value);
+
+    if (!data) {
+      return res.status(500).end('Something went wrong.');
+    }
+
+    res.status(200).json(data);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { createPost, getPosts, getPostById, updatePost };

@@ -61,9 +61,55 @@ const getPostByPk = async (postId) => BlogPost.findByPk(postId, {
   ],
 });
 
+const validatePostUpdateBody = (params) => {
+  const schema = Joi.object({
+    title: Joi.string().required(),
+    content: Joi.string().required(),
+  });
+
+  const { error } = schema.validate(params);
+
+  if (error) {
+    error.message = 'Some required fields are missing';
+    error.status = 400;
+    throw error;
+  }
+};
+
+const validateUpdatePostOwner = async (postId, token) => {
+  const { data: { id: userId } } = decodeJwt(token);
+
+  const { user: { id: postOwnerId } } = await getPostByPk(postId);
+
+  if (postOwnerId !== Number(userId)) {
+    const error = Error('Unauthorized user');
+    error.status = 401;
+    throw error;
+  }
+};
+
+const updatePost = async (id, token, value) => {
+  validatePostUpdateBody(value);
+  await validateUpdatePostOwner(id, token);
+
+  const { title, content } = value;
+  const [qtdUpdated] = await BlogPost.update(
+    { title, content },
+    { where: { id } },
+  );
+
+  if (qtdUpdated > 0) {
+    const updatedPost = await getPostByPk(id);
+    return updatedPost;
+  }
+
+  return undefined;
+};
+
 module.exports = {
   validateBody,
   createPost,
   getPosts,
   getPostByPk,
+  updatePost,
 };
