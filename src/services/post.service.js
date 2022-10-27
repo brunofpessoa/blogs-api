@@ -54,8 +54,16 @@ const getPosts = async () => BlogPost.findAll({
   ],
 });
 
+const getPostByPk = async (postId) => BlogPost.findByPk(postId, {
+  include: [
+    { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', through: { attributes: [] } },
+  ],
+});
+
 module.exports = {
   validateBody,
   createPost,
   getPosts,
+  getPostByPk,
 };
