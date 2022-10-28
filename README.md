@@ -45,7 +45,7 @@ A relação de rotas e suas respectivas descrições podem ser visualizadas nas 
 ### User
 |Método|Rota|Descrição|
 |-|-|-|
-|GET|/user/|retorna todos os usuários registrados|
+|GET|/user|retorna todos os usuários registrados|
 |GET|/user/:id|retorna o usuário do id especificado|
 |POST|/user|registra um novo usuário|
 
@@ -80,7 +80,7 @@ A relação de rotas e suas respectivas descrições podem ser visualizadas nas 
 ### Blog Posts
 |Método|Rota|Descrição|
 |-|-|-|
-|GET|/post/|retorna todos os posts|
+|GET|/post|retorna todos os posts|
 |GET|/post/:id|retorna o post especificado|
 |POST|/post|registra um novo post|
 |PUT|/post/:id|atualiza um post|
@@ -157,7 +157,7 @@ A relação de rotas e suas respectivas descrições podem ser visualizadas nas 
 ### Categories
 |Método|Rota|Descrição|
 |-|-|-|
-|GET|/categories/|retorna todas as categorias registradas|
+|GET|/categories|retorna todas as categorias registradas|
 |POST|/categories|registra uma nova categoria|
 
 > Essas rotas são acessíveis apenas caso o usuários esteja conectado (possua um token válido).
