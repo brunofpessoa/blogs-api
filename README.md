@@ -5,6 +5,10 @@ Esta é uma API para gerenciamento de um blog, na qual é possível buscar, cria
 
 Todos os códigos dos diretórios models, services, controllers, middlewares, migrations, seeders, utils e routers foram desenvolvidos por mim. Os arquivos de configuração do sequelize, eslint e docker foram fornecidos pela __trybe__.
 
+## Diagrama de entidade relacionamento do banco de dados
+
+![diagrama entidade relacionamento](./images/diagrama-er.png)
+
 ## Rotas
 
 A relação de rotas e suas respectivas descrições podem ser visualizadas nas tabelas abaixo.
@@ -34,6 +38,7 @@ A relação de rotas e suas respectivas descrições podem ser visualizadas nas 
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8"
   }
   ```
+> Importante: O token deve estar na chave Authentication no HTTP Headers.
 
 </details>
 
