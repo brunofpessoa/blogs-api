@@ -38,9 +38,9 @@ A relação de rotas e suas respectivas descrições podem ser visualizadas nas 
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8"
   }
   ```
-> Importante: O token deve estar na chave Authentication no HTTP Headers.
-
 </details>
+
+> Importante: O token deve estar na chave Authentication no HTTP Headers.
 
 ### User
 |Método|Rota|Descrição|
